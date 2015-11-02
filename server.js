@@ -28,7 +28,7 @@ if(env === 'development'){
     mongoose.connect('mongodb://localhost/fantasyhelper');
 }
 else{
-    mongoose.connect('mongodb://suneets:C1earstone@ds052408.mongolab.com:52408/syrah');
+    mongoose.connect('mongodb://suneets:C1airvoyant@ds052408.mongolab.com:52408/syrah');
 }
 
 
@@ -58,5 +58,5 @@ app.get('*', function(req, res){
 });
 
 var port = process.env.PORT || 3030;
-app.listen(process.env.PORT || 3030);
+app.listen(port);
 console.log('Listening on port '+ port + '....');
