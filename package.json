@@ -6,16 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "engines":{
-      "node": "0.10.x",
-      "npm": "1.4.x"
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.4.x"
   },
   "author": "Suneet Sasidharan",
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.3",
     "jade": "^1.11.0",
-    "mongoose": "^4.2.3"
+    "mongoose": "^4.2.3",
+    "stylus": "^0.52.4"
   },
   "devDependencies": {
     "bower": "^1.6.5"
