@@ -1,0 +1,6 @@
+.panel.panel-primary
+    .panel-heading.text-center Transfers In
+    .panel-body
+        .row(ng-repeat="player in transfersIn")
+            .col-md-4 {{player.name}}
+            .col-md-2 {{player.position}}

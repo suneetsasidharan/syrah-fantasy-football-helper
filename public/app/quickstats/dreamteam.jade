@@ -1,0 +1,6 @@
+.panel.panel-primary
+    .panel-heading.text-center Dream Team
+    .panel-body
+        .row(ng-repeat="player in dreamTeam")
+            .col-md-4 {{player.name}}
+            .col-md-2 {{player.position}}

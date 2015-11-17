@@ -1,0 +1,17 @@
+.container
+    .jumbotron
+        h1 Quick Stats
+        p Top Stats for the week
+
+    .row
+        .col-md-3
+            div(ng-include="'/partials/quickstats/dreamteam'")
+
+        .col-md-3
+            div(ng-include="'/partials/quickstats/transfersin'")
+
+        .col-md-3
+            div(ng-include="'/partials/quickstats/transfersout'")
+
+        .col-md-3
+            div(ng-include="'/partials/quickstats/injuries'")

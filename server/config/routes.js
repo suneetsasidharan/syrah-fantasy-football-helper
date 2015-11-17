@@ -1,5 +1,3 @@
-
-
 module.exports = function (app){
 
     app.get('/partials/*', function(req, res){
