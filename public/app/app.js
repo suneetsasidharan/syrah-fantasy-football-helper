@@ -14,3 +14,4 @@ angular.module('app').config(function($routeProvider, $locationProvider){
                 controller: 'mvMainController'
             })
     });
+

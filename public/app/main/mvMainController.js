@@ -1,33 +1,23 @@
-angular.module('app').controller('mvMainController', function($scope){
-    $scope.dreamTeam = [
-        {name: 'Elliot', position:'GK'},
-        {name: 'Dann', position:'DEF'},
-        {name: 'Yoshida', position:'DEF'},
-        {name: 'Wollscheid', position:'DEF'},
-        {name: 'Wisdom', position:'DEF'},
-        {name: 'Lingard', position:'MID'},
-        {name: 'Howson', position:'MID'},
-        {name: 'Lanzini', position:'MID'},
-        {name: 'Coutinho', position:'MID'},
-        {name: 'Kante', position:'MID'},
-        {name: 'Vardy', position:'FWD'}
-    ];
+angular.module('app').controller('mvMainController', function($scope, $http){
 
-    $scope.transfersIn = [
-        {name: 'Ozil', position: 'MID'},
-        {name: 'Lukaku', position: 'FWD'},
-        {name: 'Coutinho', position: 'MID'},
-        {name: 'Kane', position: 'FWD'},
-        {name: 'Smalling', position: 'DEF'}
-    ];
+    $http.get('/dreamteam').success(function(response){
+        $scope.dreamTeam = response;
+    });
 
-    $scope.transfersOut = [
-        {name: 'Payet', position: 'MID'},
-        {name: 'Bellerin', position: 'DEF'},
-        {name: 'Pelle', position: 'FWD'},
-        {name: 'Bony', position: 'FWD'},
-        {name: 'Martial', position: 'FWD'}
-    ];
+    $http.get('/topscorers').success(function(response){
+        console.log(response);
+        $scope.topScorers = response;
+    });
+
+    $http.get('/transfersin').success(function(response){
+        console.log(response);
+        $scope.transfersIn = response;
+    });
+
+    $http.get('/transfersout').success(function(response){
+        console.log(response);
+        $scope.transfersOut = response;
+    });
 
     $scope.injuries = [
         {name: 'Bigirimana', position:'MID'},

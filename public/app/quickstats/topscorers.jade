@@ -1,0 +1,6 @@
+.panel.panel-primary
+    .panel-heading.text-center Top Scorers
+    .panel-body
+        .row(ng-repeat="player in topScorers")
+            .col-md-6 {{player.webName}}
+            .col-md-6 {{player.goalsScored}}

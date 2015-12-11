@@ -11,5 +11,7 @@ require('./server/config/express')(app, config);
 require('./server/config/mongoose')(config);
 require('./server/config/routes')(app);
 
+var router = express.Router();
+
 app.listen(config.port);
 console.log('Listening on port '+ config.port + '....');
