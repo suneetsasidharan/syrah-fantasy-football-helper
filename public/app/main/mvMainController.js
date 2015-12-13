@@ -1,28 +1,35 @@
 angular.module('app').controller('mvMainController', function($scope, $http){
 
-    $http.get('/dreamteam').success(function(response){
-        $scope.dreamTeam = response;
+    $http.get('/allPlayers').success(function(response){
+        $scope.allPlayers = response;
+    }).then(function (data){
+        $scope.dreamTeam = $scope.allPlayers.filter(function (player){
+            return (player.inDreamteam === true)
+        });
+
+        var sortScorers= $scope.allPlayers.sort(function (a,b){
+            return parseFloat(b.goalsScored - a.goalsScored)
+        });
+        $scope.topScorers = sortScorers.slice(0, 10);
+
+        var sortSelectedBy= $scope.allPlayers.sort(function (a,b){
+            return parseFloat(b.selectedByPercent - a.selectedByPercent)
+        });
+        $scope.topSelectedBy = sortSelectedBy.slice(0, 10);
+
+        var sortTransfersIn= $scope.allPlayers.sort(function (a,b){
+            return parseFloat(b.transfersInEvent - a.transfersInEvent)
+        });
+        $scope.transfersIn = sortTransfersIn.slice(0, 10);
+
+        var sortTransfersOut= $scope.allPlayers.sort(function (a,b){
+            return parseFloat(b.transfersOutEvent - a.transfersOutEvent)
+        });
+        $scope.transfersOut = sortTransfersOut.slice(0, 10);
+
     });
 
-    $http.get('/topscorers').success(function(response){
-        console.log(response);
-        $scope.topScorers = response;
-    });
 
-    $http.get('/transfersin').success(function(response){
-        console.log(response);
-        $scope.transfersIn = response;
-    });
-
-    $http.get('/transfersout').success(function(response){
-        console.log(response);
-        $scope.transfersOut = response;
-    });
-
-    $http.get('/topselectedby').success(function(response){
-        console.log(response);
-        $scope.topSelectedBy = response;
-    });
 
     $scope.injuries = [
         {name: 'Bigirimana', position:'MID'},
