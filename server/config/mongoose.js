@@ -4,12 +4,6 @@ var Player = require('../../server/models/players');
 module.exports = function(config) {
     mongoose.connect(config.db);
 
-    var db = mongoose.connection;
-
-    db.on('error', console.error.bind(console, 'connection error....'));
-    db.once('open', function callback() {
-        console.log('Hello from Mongodb')
-    });
 
     var messageSchema = mongoose.Schema({message: String});
     var Message = mongoose.model('Message', messageSchema);
@@ -18,8 +12,16 @@ module.exports = function(config) {
         mongoMessage = messageDoc.message;
     });
 
+    var db = mongoose.connection;
+
+    db.on('error', console.error.bind(console, 'connection error....'));
+    db.once('open', function callback() {
+        console.log(config.message);
+    });
+
+
     //Uncomment for DB update
-    /*var i = 1;
+  /*  var i = 1;
 
     while(i < 633) {
         http.get('http://fantasy.premierleague.com/web/api/elements/' + i + '/?_=98', function (result) {
@@ -63,7 +65,6 @@ module.exports = function(config) {
         });
         i++;
     }*/
-
     /*Player.find(function (err, players) {
         if (err) return console.error(err);
         console.log(players);

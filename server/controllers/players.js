@@ -19,13 +19,19 @@ exports.getTopGoalsConceded = function(req, res){
 };
 
 exports.getTransfersIn = function(req, res){
-    players.find({}).sort({'transfersInEvent': -1}).limit(5).exec(function(err, players){
+    players.find({}).sort({'transfersInEvent': -1}).limit(10).exec(function(err, players){
         res.send(players);
     })
 };
 
 exports.getTransfersOut = function(req, res){
-    players.find({}).sort({'transfersOutEvent': -1}).limit(5).exec(function(err, players){
+    players.find({}).sort({'transfersOutEvent': -1}).limit(10).exec(function(err, players){
+        res.send(players);
+    })
+};
+
+exports.getTopSelectedBy = function(req, res){
+    players.find({}).sort({'selectedByPercent': -1}).limit(11).exec(function(err, players){
         res.send(players);
     })
 };

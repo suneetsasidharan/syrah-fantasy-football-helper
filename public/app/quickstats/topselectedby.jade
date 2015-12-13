@@ -1,0 +1,7 @@
+.panel.panel-primary
+    .panel-heading.text-center Most Selected Players
+    .panel-body
+        .row(ng-repeat="player in topSelectedBy")
+            .col-md-5 {{player.webName}}
+            .col-md-4 {{player.teamName}}
+            .col-md-3 {{player.selectedByPercent}}%

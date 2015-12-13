@@ -19,6 +19,11 @@ angular.module('app').controller('mvMainController', function($scope, $http){
         $scope.transfersOut = response;
     });
 
+    $http.get('/topselectedby').success(function(response){
+        console.log(response);
+        $scope.topSelectedBy = response;
+    });
+
     $scope.injuries = [
         {name: 'Bigirimana', position:'MID'},
         {name: 'Delph', position:'MID'},

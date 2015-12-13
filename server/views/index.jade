@@ -6,14 +6,13 @@ block main-content
             .navbar-header
                 a.navbar-brand(href="/") Syrah
             .navbar-collapse.collapse
-                ul.nav.navbar-nav
+                ul.list-inline
                     li
                     a(href="/") Home
                     li
                     a(href="/quickstats") Quick Stats
     section.content
         div(ng-view)
-     h2=mongoMessage
 
      footer.container.text-center
         p &copy; 2015 Syrah Inc.

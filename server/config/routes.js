@@ -14,6 +14,7 @@ module.exports = function (app){
     app.get('/topscorers', players.getTopGoalScorers);
     app.get('/transfersin', players.getTransfersIn);
     app.get('/transfersout', players.getTransfersOut);
+    app.get('/topselectedby', players.getTopSelectedBy);
 
     app.get('/partials/*', function(req, res){
         res.render('../../public/app/' +req.params[0]);
